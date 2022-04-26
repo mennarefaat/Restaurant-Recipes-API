@@ -1,3 +1,4 @@
+import { RecipeRouter } from './routes/Recipe.route';
 import { Server } from './core/customServer';
 import { CorsMiddleware } from './core/middleware/cors.middleware';
 import { ErrorMiddleware } from './core/middleware/error.middleware';
@@ -16,6 +17,7 @@ app.middleware(new BodyParserMiddleware());
 app.middleware(new MoragnMiddleware());
 
 // -------------- Routers -------------------
+app.route(new RecipeRouter());
 
 // -------------- Err MW --------------------
 app.errorMiddleware(new ErrorMiddleware());
