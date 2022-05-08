@@ -3,7 +3,7 @@ import { Schema, model } from 'mongoose';
 // ______________Reciepe interface__________________________________
 export interface Recipes {
   title: string;
-  ingredients: string[];
+  ingredients: string[]|string;
   recipe: string;
   image: string;
 }

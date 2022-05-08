@@ -19,7 +19,7 @@ export class RecipeRouter implements IRouterCustom {
     recipeRouter
       .route('/recipes/:id')
       .get(recipeValidation.getOneOrDelete, recipeController.getOne)
-      .put(recipeValidation.put, recipeController.put)
+      .put(recipeController.put)
       .delete(
         recipeValidation.getOneOrDelete,
         recipeController.delete

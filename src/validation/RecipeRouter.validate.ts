@@ -25,7 +25,7 @@ export default class RecipeValidator implements IRouterValidator {
       title: Joi.string().min(3).max(30).required(),
       image: Joi.string().required(),
       recipe: Joi.string().required(),
-      ingredients: Joi.array().required()
+      ingredients: Joi.string().required()
     });
     try {
       await schema.validateAsync(req.body);
@@ -37,10 +37,11 @@ export default class RecipeValidator implements IRouterValidator {
 
   async put(req: Request, res: Response, next: NextFunction): Promise<void> {
     const schema = Joi.object({
-      id: Joi.string().length(24).required(),
+      _id: Joi.string().length(24).required(),
       image: Joi.string().required(),
+      title: Joi.string().min(3).max(30).required(),
       recipe: Joi.string().required(),
-      ingredients: Joi.array().required()
+      ingredients: Joi.string().required()
     });
     try {
       await schema.validateAsync({ ...req.body, id: req.params.id });
